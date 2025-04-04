@@ -1,14 +1,21 @@
 import Navbar from "./components/Navbar";
-import ProductList from "./components/ProductList";
+import Tailwind from "../global.css";
 
 export default function Home() {
   return (
-    <div>
+    <main className="min-h-screen bg-white">
       <Navbar />
-      <main className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Bem-vindo à Maev Store</h1>
-        <ProductList />
-      </main>
-    </div>
+      <div className="container mx-auto p-6 text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Bem-vindo à Maev Store</h1>
+        <div className="flex justify-center">
+          <img
+            src="/images/modelo.jpg"
+            alt="Moda Feminina"
+            className="rounded-lg shadow-lg w-1/2 object-cover"
+          />
+        </div>
+      </div>
+    </main>
   );
 }
+

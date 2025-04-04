@@ -1,6 +1,7 @@
 // components/ProductCard.tsx
 
-import React from "react";
+import * as React from "react";
+
 
 interface Product {
   id: number;
