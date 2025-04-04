@@ -1,21 +1,45 @@
-// components/Navbar.tsx
-
-import * as React from "react";
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="bg-black text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-lg font-bold cursor-pointer">Maev Store</h1>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container">
+        <Link className="navbar-brand" href="/">
+          Maev Store
         </Link>
-        <div className="space-x-4">
-          <Link href="/produtos" className="hover:underline">Produtos</Link>
-          <Link href="/carrinho" className="hover:underline">Carrinho</Link>
-          <Link href="/contato" className="hover:underline">Contato</Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link className="nav-link" href="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" href="/products">
+                Produtos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" href="/cart">
+                Carrinho
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
